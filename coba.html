@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prank Web</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .marquee {
+        position: absolute;
+        white-space: nowrap;
+        font-size: 70px;
+        animation: marquee 10s linear infinite, color-change 2s infinite;
+    }
+    @keyframes marquee {
+        0% {transform: translateX(100%);}
+        100% {transform: translateX(-100%);}
+    }
+    @keyframes color-change {
+        0% {color: red;}
+        10% {color: orange;}
+        25% {color: yellow;}
+        42% {color: #98FF98;} /* Mint green replaced for web compatibility */
+        50% {color: blue;}
+        60% {color: #4CBB17;} /* Leaf green replaced for web compatibility */
+        75% {color: green;}
+        80% {color: #C71585;} /* Red violet replaced for web compatibility */
+        100% {color: violet;}
+    }
+    .watermark {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        color: grey;
+        z-index: 1000;
+    }
+</style>
+</head>
+<body>
+
+<div class="marquee">JANGAN ASAL KLIK, SIAPA TAU WEB PHISSING ATAU HACK</div>
+<div class="watermark">Cr: AndiDwi</div>
+<!-- Dialog Konfirmasi Keluar -->
+<div id="confirmExit" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; z-index: 1000; border: 1px solid #ccc; border-radius: 5px;">
+  <p>Kamu mau keluar?</p>
+  <button id="exitYes">Ya</button>
+  <button id="exitNo">Tidak</button>
+</div>
+<script>
+  // Menambahkan entri ke history untuk memanipulasi perilaku back button
+  window.history.pushState(null, "", window.location.href);  
+  window.onpopstate = function() {
+    // Menampilkan dialog konfirmasi keluar
+    document.getElementById('confirmExit').style.display = 'block';
+  };
+
+  document.getElementById('exitYes').addEventListener('click', function() {
+    // Mengarahkan pengguna ke halaman lain atau melakukan reload untuk "keluar"
+    window.location.href = 'https://www.google.com'; // Contoh pengalihan
+  });
+
+  document.getElementById('exitNo').addEventListener('click', function() {
+    document.getElementById('confirmExit').style.display = 'none';
+    // Mungkin tambahkan logika untuk mengembalikan pengguna ke aktivitas sebelumnya di halaman
+  });
+</script>
+
+</body>
+</html>
