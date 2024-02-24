@@ -1,125 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prank Web</title>
-<style>
-    body, html {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    .marquee {
-        position: absolute;
-        white-space: nowrap;
-        font-size: 7vw;
-        animation: marquee 10s linear infinite, color-change 2s infinite;
-    }
-    @keyframes marquee {
-        0% {transform: translateX(100%);}
-        100% {transform: translateX(-100%);}
-    }
-    @keyframes color-change {
-        0% {color: red;}
-        10% {color: orange;}
-        25% {color: yellow;}
-        42% {color: #98FF98;} /* Mint green replaced for web compatibility */
-        50% {color: blue;}
-        60% {color: #4CBB17;} /* Leaf green replaced for web compatibility */
-        75% {color: green;}
-        80% {color: #C71585;} /* Red violet replaced for web compatibility */
-        100% {color: violet;}
-    }
-    .watermark {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        font-size: 1vw;
-        color: grey;
-        z-index: 1000;
-    }
-
-    #confirmExit {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #ffffff;
-        padding: 20px;
-        z-index: 1000;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        color: #333;
-    }
-
-    #confirmExit p {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-
-    #exitYes, #exitNo {
-        padding: 10px 20px;
-        margin: 0 10px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    #exitYes {
-        background-color: #5cb85c;
-        color: #fff;
-    }
-
-    #exitNo {
-        background-color: #d9534f;
-        color: #fff;
-    }
-
-    #exitYes:hover, #exitNo:hover {
-        background-color: #4cae4c;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Redirect Otomatis ke Situs Acak</title>
+    <script>
+        window.onload = function() {
+            var websites = [
+                'https://www.youtube.com',
+                'https://www.tiktok.com',
+                'https://www.instagram.com',
+                'https://www.google.com',
+                // Tambahkan lebih banyak URL situs web yang diinginkan di sini
+            ];
+            var randomWebsite = websites[Math.floor(Math.random() * websites.length)];
+            window.location.href = randomWebsite;
+        }
+    </script>
 </head>
 <body>
-
-<div class="marquee">JANGAN ASAL KLIK, SIAPA TAU WEB PHISSING ATAU HACK</div>
-<div class="watermark">Cr: AndiDwi</div>
-<!-- Dialog Konfirmasi Keluar -->
-<div id="confirmExit">
-  <p>Kamu mau keluar?</p>
-  <button id="exitYes">Ya</button>
-  <button id="exitNo">Tidak</button>
-</div>
-<script>
-  // Menambahkan entri ke history untuk memanipulasi perilaku back button
-  window.history.pushState(null, "", window.location.href);  
-  window.onpopstate = function() {
-    // Menampilkan dialog konfirmasi keluar
-    document.getElementById('confirmExit').style.display = 'block';
-  };
-
-  document.getElementById('exitYes').addEventListener('click', function() {
-    window.location.href = 'https://tokoandi.github.io/COBA-KLIK.github.io/coba.html';
-  });
-  document.getElementById('exitYes').addEventListener('click', function() {
-    alert("AWOWKOKWOKWOKWOKWOKOWKOKOWKOW!");
-  });
-
-  document.getElementById('exitNo').addEventListener('click', function() {
-    document.getElementById('confirmExit').style.display = 'none';
-    // Mungkin tambahkan logika untuk mengembalikan pengguna ke aktivitas sebelumnya di halaman
-  });
-</script>
-
+    <p>Jika kamu tidak dialihkan secara otomatis, <a href="javascript:window.onload()">klik di sini</a>.</p>
 </body>
 </html>
